@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# Command: /plan:project
+#
+# Description:
+#   Master command that chains all planning commands together for a complete
+#   project workflow. It first uses /plan:ask-me to iteratively develop
+#   specifications, then compiles findings into a developer-ready spec,
+#   creates a todo checklist, and finally generates implementation prompts.
+#
+# Usage Example:
+#   /plan:project "A web scraper for tech blogs"
+# ---------------------------------------------------------------------------
+
+name = "plan:project"
+description = "Master command that chains all planning commands together for complete project workflow"
+
+prompt = """
+I'll help you initiate a complete project planning workflow for your idea. This process will:
+
+1. Ask questions iteratively to develop a thorough specification
+2. Compile the findings into a comprehensive, developer-ready specification
+3. Generate a thorough todo checklist to track progress
+4. Create detailed implementation prompts for a code-generation LLM
+
+Let's start with the first step - developing a detailed specification through iterative questioning.
+
+Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea.
+Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer.
+Let's do this iteratively and dig into every relevant detail. Remember, only one question at a time.
+
+Here's the idea:
+
+```
+{{args}}
+```
+"""

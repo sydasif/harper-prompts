@@ -18,6 +18,8 @@ This extension provides a structured approach to software project planning throu
 - **plan:compile**: Compiles brainstorming findings into developer-ready specifications
 - **plan:prompt**: Generates step-by-step prompts for implementation (with optional --ttd flag for TDD approach)
 - **plan:todo**: Creates detailed `todo.md` checklist files for project tracking
+- **plan:project**: Master command that chains all planning commands together for complete project workflow
+- **plan:run**: Executes prompts from a generated prompt file in an automated sequence with optional automated testing
 
 ## How to Use Commands
 

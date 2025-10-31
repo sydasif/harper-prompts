@@ -9,14 +9,17 @@
 #   approach instead.
 #
 # Usage Example:
-#   /plan:prompt mobile app that tracks personal reading habits
-#   /plan:prompt --ttd mobile app that tracks personal reading habits
+#   /plan:prompt
+#   /plan:prompt --ttd
 # ---------------------------------------------------------------------------
 
 name = "plan:prompt"
 description = "Generates a series of prompts for a code-generation LLM to implement a project with optional TDD approach"
 
 prompt = """
+
+Project file: spec.md
+
 Draft a detailed, step-by-step blueprint for building this project.
 Then, once you have a solid plan, break it down into small, iterative chunks that build on each other.
 Look at these chunks and then go another round to break it into small steps.

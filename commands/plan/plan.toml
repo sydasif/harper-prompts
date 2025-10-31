@@ -7,10 +7,12 @@
 #   it down into small, incremental chunks to guide the implementation
 #   process.
 #
+# Usage Example:
+#   /plan:prompt mobile app that tracks personal reading habits
 # ---------------------------------------------------------------------------
 
 name = "plan:prompt"
-description = "Generates a series of prompts for a code-generation LLM"
+description = "Generates a series of prompts for a code-generation LLM to implement a project"
 
 prompt = """
 Draft a detailed, step-by-step blueprint for building this project.

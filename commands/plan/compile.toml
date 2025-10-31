@@ -6,12 +6,11 @@
 #   by /plan:ask) into a comprehensive, developer-ready specification.
 #
 # Usage Example:
-#   /plan:compile
-#   (This command is typically run after a series of /plan:ask interactions)
+#   /plan:compile mobile app that tracks personal reading habits
 # ---------------------------------------------------------------------------
 
 name = "plan:compile"
-description = "Compiles brainstorming findings into a developer-ready specification."
+description = "Compiles brainstorming findings into a developer-ready specification"
 
 prompt = """
 Now that we’ve wrapped up the brainstorming process, can you compile our findings into a comprehensive,

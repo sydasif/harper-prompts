@@ -5,10 +5,12 @@
 #   Generates a thorough `todo.md` file from a project idea, creating a
 #   detailed checklist that can be used to track progress.
 #
+# Usage Example:
+#   /plan:todo mobile app that tracks personal reading habits
 # ---------------------------------------------------------------------------
 
 name = "plan:todo"
-description = "Generates a thorough `todo.md` checklist file"
+description = "Generates a thorough `todo.md` checklist file from a project idea"
 
 prompt = """
 Make a `todo.md` plan for the project, that I can use as a checklist? Be thorough.

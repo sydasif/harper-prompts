@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# Command: /plan:ttd-prompt
+# Command: /plan:plan-ttd
 #
 # Description:
 #   Generates a series of prompts for a code-generation LLM to implement
@@ -7,10 +7,12 @@
 #   creates a detailed, step-by-step blueprint and then breaks it down
 #   into small, testable chunks.
 #
+# Usage Example:
+#   /plan:plan-ttd mobile app that tracks personal reading habits
 # ---------------------------------------------------------------------------
 
 name = "plan:plan-ttd"
-description = "TDD prompt generation pipeline."
+description = "Generates a series of prompts for a code-generation LLM using TDD approach"
 
 prompt = """
 Draft a detailed, step-by-step blueprint for building this project.

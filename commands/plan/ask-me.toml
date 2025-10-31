@@ -11,7 +11,7 @@
 # ---------------------------------------------------------------------------
 
 name = "plan:ask-me"
-description = "Asks question to develop a thorough, step-by-step spec for an idea."
+description = "Asks questions iteratively to develop a thorough, step-by-step spec for an idea"
 
 prompt = """
 Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea.

@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------------------
+# Command: /plan:todo
+#
+# Description:
+#   Generates a thorough `todo.md` file from a project idea, creating a
+#   detailed checklist that can be used to track progress.
+#
+# ---------------------------------------------------------------------------
+
+name = "plan:todo"
+description = "Generates a thorough `todo.md` checklist file"
+
+prompt = """
+Make a `todo.md` plan for the project, that I can use as a checklist? Be thorough.
+"""

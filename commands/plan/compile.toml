@@ -1,0 +1,22 @@
+# ---------------------------------------------------------------------------
+# Command: /plan:compile
+#
+# Description:
+#   Compiles the findings from a brainstorming session (likely initiated
+#   by /plan:ask) into a comprehensive, developer-ready specification.
+#
+# Usage Example:
+#   /plan:compile
+#   (This command is typically run after a series of /plan:ask interactions)
+# ---------------------------------------------------------------------------
+
+name = "plan:compile"
+description = "Compiles brainstorming findings into a developer-ready specification."
+
+prompt = """
+Now that we’ve wrapped up the brainstorming process, can you compile our findings into a comprehensive,
+developer-ready specification? Include all relevant requirements, architecture choices,
+data handling details, error handling strategies, and a testing plan so a developer can immediately begin implementation.
+
+Save the output as: spec.md
+"""

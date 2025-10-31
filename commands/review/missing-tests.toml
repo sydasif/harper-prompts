@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+# Command: /review:missing-tests
+#
+# Description:
+#   Reviews code to identify missing test cases and creates GitHub issues for them.
+#   Based on find-missing-tests.md functionality.
+#
+# Usage Example:
+#   /review:missing-tests
+# ---------------------------------------------------------------------------
+
+name = "review:missing-tests"
+description = "Reviews code for missing tests and creates GitHub issues"
+
+prompt = """
+You are a senior developer. Your job is to review this code, and write out a list of missing test cases, and code tests that should exist. You should be specific, and be very good. Do Not Hallucinate. Think quietly to yourself, then act - write the issues. The issues will be given to a developer to execute on, so they should be in a format that is compatible with github issues
+
+For each missing test, make a corresponding issue in github
+"""

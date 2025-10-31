@@ -6,15 +6,17 @@
 #   a project. It creates a detailed, step-by-step blueprint and breaks
 #   it down into small, incremental chunks to guide the implementation
 #   process. With the --ttd flag, it follows a Test-Driven Development
-#   approach instead.
+#   approach instead. With the --gh flag, it creates GitHub issues for
+#   each step.
 #
 # Usage Example:
 #   /plan:prompt
 #   /plan:prompt --ttd
+#   /plan:prompt --gh
 # ---------------------------------------------------------------------------
 
 name = "plan:prompt"
-description = "Generates a series of prompts for a code-generation LLM to implement a project with optional TDD approach"
+description = "Generates a series of prompts for a code-generation LLM to implement a project with optional TDD or GitHub issues approach"
 
 prompt = """
 
@@ -47,6 +49,27 @@ The goal is to output prompts, but context, etc is important as well.
 ```
 
 Save the output as: ttd-prompt.md
+{{else if args.includes('--gh')}}
+# GitHub Issues Approach
+Follow a GitHub issues approach:
+- Prioritize creating tests first for each component/feature
+- Ensure no big jumps in complexity at any stage
+- Make sure that each prompt builds on the previous prompts, and ends with wiring things together
+- There should be no hanging or orphaned code that isn't integrated into a previous step
+- For each step, create a GitHub issue
+
+Make sure and separate each prompt section.
+Use markdown.
+Each prompt should be tagged as text using code tags.
+The goal is to output prompts, but context, etc is important as well.
+
+For each step, create a github issue.
+
+```
+{{args}}
+```
+
+Save the output as: gh-prompt.md
 {{else}}
 # Regular Approach
 Prioritize best practices, and incremental progress, ensuring no big jumps in complexity at any stage.
@@ -62,6 +85,6 @@ The goal is to output prompts, but context, etc is important as well.
 {{args}}
 ```
 
-Save the output as: prompt.md
+Store the plan in plan.md. Also create a todo.md to keep state.
 {{/if}}
 """

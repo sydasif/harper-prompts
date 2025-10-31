@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------------------
+# Command: /review:security
+#
+# Description:
+#   Performs a security review of code to identify vulnerabilities.
+#   Based on security-review.md functionality.
+#
+# Usage Example:
+#   /review:security
+# ---------------------------------------------------------------------------
+
+name = "review:security"
+description = "Reviews code for security vulnerabilities"
+
+prompt = """
+Review this code for security vulnerabilities, focusing on:
+"""

@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+# Command: /review:careful
+#
+# Description:
+#   Performs a careful review of new code with fresh eyes to find bugs and issues.
+#   Based on careful-review.md functionality.
+#
+# Usage Example:
+#   /review:careful
+# ---------------------------------------------------------------------------
+
+name = "review:careful"
+description = "Performs careful code review of new/modified code"
+
+prompt = """
+Great, now I want you to carefully read over all of the new code you just wrote and other existing code you just modified with "fresh eyes," looking super carefully for any obvious bugs, errors, problems, issues, confusion, etc.
+
+Once you are done, spend some time fixing the issues.
+"""

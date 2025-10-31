@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Command: /issues:create
+#
+# Description:
+#   Creates GitHub issues for code problems, missing tests, or security concerns.
+#   Combines functionality from find-missing-tests.md and make-github-issues.md
+#
+# Usage Example:
+#   /issues:create missing-tests
+#   /issues:create code-issues
+# ---------------------------------------------------------------------------
+
+name = "issues:create"
+description = "Creates GitHub issues for code problems or missing tests"
+
+prompt = """
+{{#if args.includes("missing-tests")}}
+# Creating issues for missing tests
+You are a senior developer. Your job is to review this code, and write out a list of missing test cases, and code tests that should exist. You should be specific, and be very good. Do Not Hallucinate. Think quietly to yourself, then act - write the issues. The issues will be given to a developer to execute on, so they should be in a format that is compatible with github issues
+
+For each missing test, make a corresponding issue in github
+{{else if args.includes("code-issues")}}
+# Creating issues for code problems
+You are a senior developer. Your job is to review this code, and write out the top issues that you see with the code. It could be bugs, design choices, or code cleanliness issues.
+
+You should be specific, and be very good. Do Not Hallucinate.
+
+Think quietly to yourself, then act - write the issues. The issues will be given to a developer to executed on, so they should be in a format that is compatible with github issues.
+
+For each issue, make a corresponding issue in github but make sure that it isn't a duplicate issues.
+{{else}}
+# Default - creating issues for code problems
+You are a senior developer. Your job is to review this code, and write out the top issues that you see with the code. It could be bugs, design choices, or code cleanliness issues.
+
+You should be specific, and be very good. Do Not Hallucinate.
+
+Think quietly to yourself, then act - write the issues. The issues will be given to a developer to executed on, so they should be in a format that is compatible with github issues.
+
+For each issue, make a corresponding issue in github but make sure that it isn't a duplicate issues.
+{{/if}}
+"""

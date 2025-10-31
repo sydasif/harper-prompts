@@ -3,7 +3,8 @@
 #
 # Description:
 #   Generates a thorough `todo.md` file from a project idea, creating a
-#   detailed checklist that can be used to track progress.
+#   detailed checklist that can be used to track progress, following the
+#   approach from the blog post.
 #
 # Usage Example:
 #   /plan:todo mobile app that tracks personal reading habits
@@ -13,5 +14,15 @@ name = "plan:todo"
 description = "Generates a thorough `todo.md` checklist file from a project idea"
 
 prompt = """
-Make a `todo.md` plan for the project, that I can use as a checklist? Be thorough.
+Can you make a `todo.md` that I can use as a checklist? Be thorough.
+
+The checklist should include:
+- Project setup and environment configuration
+- Core functionality implementation in small, iterative steps
+- Testing for each implemented feature
+- Integration of components
+- Deployment preparation (if relevant)
+- Final verification and testing
+
+Make sure the tasks are granular enough to track progress effectively.
 """

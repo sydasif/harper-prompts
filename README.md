@@ -8,10 +8,9 @@ The Harper Prompts framework follows a systematic approach to software developme
 
 1. **Idea Refinement** - Iterative questioning to develop thorough specifications
 2. **Planning** - Detailed, step-by-step blueprint generation
-3. **Issue Handling** - GitHub issue management and workflow
-4. **Code Review** - Quality and security review processes
-5. **Implementation** - Test-driven or regular development prompts
-6. **Tracking** - Comprehensive to-do lists for project management
+3. **Code Review** - Quality and security review processes
+4. **Implementation** - Test-driven or regular development prompts
+5. **Tracking** - Comprehensive to-do lists for project management
 
 ## Core Philosophy
 
@@ -26,70 +25,35 @@ This framework is built on the principles outlined in the blog post about LLM-as
 
 ### Planning Commands
 
-#### `/plan:ask-me`
+#### `/project:compile`
+
+Compiles brainstorming findings into a comprehensive, developer-ready specification including requirements, architecture, data handling, error handling, and testing plans.
+
+#### `/project:init`
 
 Interactive iterative questioning to develop detailed specifications. Asks one question at a time to build a comprehensive spec for your idea.
 
 ```bash
-/plan:ask-me mobile app that tracks personal reading habits
+/project:init mobile app that tracks personal reading habits
 ```
 
-#### `/plan:compile`
-
-Compiles brainstorming findings into a comprehensive, developer-ready specification including requirements, architecture, data handling, error handling, and testing plans.
-
-#### `/plan:prompt`
+#### `/project:plan`
 
 Generates step-by-step implementation prompts for code generation LLMs. Can be used with `--ttd` for Test-Driven Development or `--gh` for GitHub Issues approach.
 
 ```bash
-/plan:prompt
-/plan:prompt --ttd
-/plan:prompt --gh
+/project:plan
+/project:plan --ttd
+/project:plan --gh
 ```
 
-#### `/plan:todo`
+#### `/project:todo`
 
 Creates thorough `todo.md` checklist files for project tracking.
 
-#### `/plan:run`
+#### `/project:run`
 
 Executes prompts from a generated prompt file in an automated sequence with optional automated testing.
-
-### Issue Handling Commands
-
-#### `/issues:handle`
-
-Handles a GitHub issue with a detailed plan, implementation, and PR workflow.
-
-```bash
-/issues:handle 123
-```
-
-#### `/issues:work-prompt-plan`
-
-Works on issues from the prompt plan following a structured workflow.
-
-```bash
-/issues:work-prompt-plan
-```
-
-#### `/issues:work-todo`
-
-Works on issues from the todo list following a structured workflow.
-
-```bash
-/issues:work-todo
-```
-
-#### `/issues:create`
-
-Creates GitHub issues for code problems, missing tests, or security concerns.
-
-```bash
-/issues:create missing-tests
-/issues:create code-issues
-```
 
 ### Code Review Commands
 
@@ -117,24 +81,14 @@ Performs a security review of code to identify vulnerabilities.
 /review:security
 ```
 
-### Development Commands
-
-#### `/dev:dot-file`
-
-Creates a .dot file representing the project based on spec.md and other files.
-
-```bash
-/dev:dot-file
-```
-
 ### Setup Commands
 
-#### `/setup:config`
+#### `/project:setup`
 
 Provides setup configuration information and workflow details.
 
 ```bash
-/setup:config
+/project:setup
 ```
 
 ## Usage Workflow
@@ -143,21 +97,17 @@ The recommended workflow mirrors the approach described in the blog post:
 
 ### 1. Idea Honing
 
-Use `/plan:ask-me` to iteratively refine your idea into a detailed specification.
+Use `/project:init` to iteratively refine your idea into a detailed specification.
 
 ### 2. Planning
 
-Take the specification and use `/plan:prompt` to generate implementation prompts, then `/plan:todo` to create a tracking checklist.
+Take the specification and use `/project:plan` to generate implementation prompts, then `/project:todo` to create a tracking checklist.
 
 ### 3. Execution
 
 Use the generated prompts with your preferred code generation tool (Aider, Cursor, Claude, etc.) to implement the project incrementally.
 
-### 4. Issue Management
-
-Use the issue handling commands to manage GitHub workflows.
-
-### 5. Quality Assurance
+### 4. Quality Assurance
 
 Use the review commands to ensure code quality and security.
 
@@ -168,7 +118,6 @@ Use the review commands to ensure code quality and security.
 - **Documentation**: Maintains comprehensive specifications and tracking
 - **AI Integration**: Designed to work effectively with modern code generation tools
 - **Flexible**: Supports both TDD and regular development approaches
-- **Issue Management**: Built-in workflows for GitHub issue handling
 
 ## Inspiration
 

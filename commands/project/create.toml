@@ -18,5 +18,5 @@ developer-ready specification? Include all relevant requirements, architecture c
 data handling details, error handling strategies,
 and a testing plan so a developer can immediately begin implementation.
 
-Save the output as: specification.md
+Save the output as: `specification.md`
 """

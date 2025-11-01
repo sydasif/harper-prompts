@@ -15,6 +15,7 @@ prompt = """
 Review this codebase for security vulnerabilities, focusing on:
 
 ## Authentication & Authorization
+
 - Weak or missing authentication mechanisms
 - Improper session management
 - Insufficient access controls
@@ -22,6 +23,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Insecure password storage (unhashed, weak hashing)
 
 ## Input Validation & Injection
+
 - SQL injection vulnerabilities
 - Command injection risks
 - Cross-site scripting (XSS) vulnerabilities
@@ -30,6 +32,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Insufficient input sanitization
 
 ## Data Protection
+
 - Sensitive data exposure in logs or error messages
 - Unencrypted sensitive data storage
 - Missing encryption for data in transit
@@ -37,6 +40,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Insecure cryptographic implementations
 
 ## API Security
+
 - Missing rate limiting
 - Insufficient API authentication
 - Exposure of internal implementation details
@@ -44,6 +48,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Missing request validation
 
 ## Dependency & Configuration
+
 - Known vulnerabilities in dependencies
 - Insecure default configurations
 - Exposed debug endpoints in production
@@ -51,6 +56,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Missing security headers
 
 ## Code Quality Issues
+
 - Race conditions
 - Buffer overflows (in languages like C/C++)
 - Use of dangerous functions
@@ -58,6 +64,7 @@ Review this codebase for security vulnerabilities, focusing on:
 - Missing input length restrictions
 
 Please provide:
+
 1. A list of identified vulnerabilities with severity ratings (Critical/High/Medium/Low)
 2. Specific line numbers or code sections affected
 3. Recommended fixes for each issue

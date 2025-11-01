@@ -20,6 +20,7 @@ prompt = """
 Perform a comprehensive audit of error handling in the codebase:
 
 ## 1. Identify Missing Error Handling
+
 Review all code for operations that could fail but lack error handling:
 - File I/O operations
 - Network requests/API calls
@@ -30,6 +31,7 @@ Review all code for operations that could fail but lack error handling:
 - Resource allocation (memory, file handles, connections)
 
 ## 2. Evaluate Existing Error Handling
+
 For existing error handling, check:
 - Are errors caught at the appropriate level?
 - Are error messages informative and actionable?
@@ -39,11 +41,13 @@ For existing error handling, check:
 - Is there a consistent error handling pattern?
 
 ## 3. Security Considerations
+
 - Are error messages exposing sensitive information?
 - Are stack traces exposed to end users?
 - Are errors being swallowed silently?
 
 ## 4. Generate Report
+
 Create a report listing:
 - **Critical**: Operations that must have error handling
 - **Important**: Operations that should have better error handling
@@ -58,6 +62,7 @@ I'll review the codebase and implement comprehensive error handling following th
 ## Error Handling Strategy
 
 ### 1. Identify Error-Prone Operations
+
 Review all code for operations that can fail:
 - File operations (read/write/delete)
 - Network/API calls

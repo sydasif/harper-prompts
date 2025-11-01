@@ -18,7 +18,7 @@ I'll help you run through the prompts in the generated prompt file to implement 
 
 For TDD workflow (`ttd-planning.md`), I will:
 
-1. Execute each prompt (e.g., create test files)
+1. Execute each prompt (e.g., create test files) separately
 2. Automatically run tests to see the expected failures
 3. Execute implementation prompts (e.g., create implementation files to pass tests)
 4. Run tests again to verify they pass

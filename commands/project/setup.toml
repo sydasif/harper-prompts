@@ -17,8 +17,6 @@ description = "Configures language-specific standards and tooling"
 prompt = """
 I'll help you set up language-specific standards and tooling for your project.
 
-Project files: `specification.md` and `planing.md`
-
 # Language-Specific Configuration
 
 {{#if args.includes('python')}}
@@ -30,6 +28,7 @@ Project files: `specification.md` and `planing.md`
 - **Tool**: `uv` (modern, fast Python package manager)
 - **Alternative**: `pip` + `venv` for traditional setup
 - **Configuration**: `pyproject.toml`
+- **Tool Checking**: Check required tool is available, if not install
 
 ### Commands:
 

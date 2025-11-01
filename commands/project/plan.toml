@@ -17,7 +17,7 @@ name = "project:plan"
 description = "Generates a series of prompts for a code-generation LLM to implement a project with an optional TDD approach"
 
 prompt = """
-Project file: specification.md
+Project file: `specification.md`
 
 Draft a detailed, step-by-step blueprint for building this project.
 Then, once you have a solid plan, break it down into small, iterative chunks that build on each other.
@@ -28,7 +28,6 @@ but big enough to move the project forward. Iterate until you feel that the step
 From here you should have the foundation to provide a series of prompts for a code-generation LLM that will implement each step.
 
 {{#if args.includes('--ttd')}}
-
 # TDD Approach
 
 Follow a test-driven development approach:
@@ -40,18 +39,16 @@ Follow a test-driven development approach:
 - Prioritize incremental progress and early testing, ensuring no big jumps in complexity at any stage. Make sure that each prompt builds on the previous prompts, and ends with wiring things together. There should be no hanging or orphaned code that isn't integrated into a previous step.
 
 Make sure and separate each prompt section.
-Use markdown.
-Each prompt should be tagged as text using code tags.
+Use markdown. Each prompt should be tagged as text using code tags.
 The goal is to output prompts, but context, etc is important as well.
 
 ```
 {{args}}
 ```
 
-Save the output as: ttd-planning.md
+Save the output as: `ttd-planning.md`
 
 {{else}}
-
 # Regular Approach
 
 Prioritize best practices, and incremental progress, ensuring no big jumps in complexity at any stage.
@@ -59,15 +56,13 @@ Make sure that each prompt builds on the previous prompts, and ends with wiring 
 There should be no hanging or orphaned code that isn't integrated into a previous step.
 
 Make sure and separate each prompt section.
-Use markdown.
-Each prompt should be tagged as text using code tags.
+Use markdown. Each prompt should be tagged as text using code tags.
 The goal is to output prompts, but context, etc is important as well.
 
 ```
 {{args}}
 ```
 
-Store the plan in planing.md.
-
+Store the plan in `planing.md`.
 {{/if}}
 """

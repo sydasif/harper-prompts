@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------------------
+# Command: /project:run
+#
+# Description:
+#   Executes prompts from a generated prompt file (plan.md or ttd-plan.md)
+#   in an automated sequence, following the implementation approach from the
+#   blog post. This simulates the execution phase mentioned in the workflow.
+#
+# Usage Example:
+#   /project:run ttd-plan.md
+# ---------------------------------------------------------------------------
+
+name = "project:run"
+description = "Executes prompts from a generated prompt file in an automated sequence with optional automated testing"
+
+prompt = """
+I'll help you run through the prompts in the generated prompt file to implement your project step by step, following the execution approach described in the blog post.
+
+For TDD workflow (ttd-plan.md), I will:
+1. Execute each prompt (e.g., create test files)
+2. Automatically run tests to see the expected failures
+3. Execute implementation prompts (e.g., create implementation files to pass tests)
+4. Run tests again to verify they pass
+5. Continue to the next test/implementation pair
+
+For regular workflow (plan.md), I will:
+1. Execute each prompt in sequence
+2. Verify implementation steps are completed before moving forward
+3. Follow the small, iterative chunks approach to ensure steady progress
+
+This follows the execution phase from the blog post where implementation happens incrementally, with options for using tools like Aider, Claude, or other code generation tools to actually implement the code.
+
+Please specify which prompt file you'd like to run:
+
+```
+{{args}}
+```
+
+Based on the file type, I'll follow the appropriate automated execution strategy following the blog post's methodology.
+"""

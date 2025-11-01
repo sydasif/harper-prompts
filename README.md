@@ -15,10 +15,10 @@ This is a CLI agent extension. Install it in your Qwen/AI CLI agent:
 
 ```bash
 # 1. Start with your idea
-/project:init mobile app that tracks personal reading habits
+/project:spec mobile app that tracks personal reading habits
 
 # 2. Compile the specification
-/project:compile
+/project:spec-create
 
 # 3. Generate implementation plan (with TDD)
 /project:plan --ttd
@@ -27,10 +27,10 @@ This is a CLI agent extension. Install it in your Qwen/AI CLI agent:
 /project:todo
 
 # 5. Execute the plan
-/project:run ttd-plan.md
+/project:execute ttd-plan.md
 
 # 6. Review your code
-/review:careful
+/review:code
 /review:security
 ```
 
@@ -48,15 +48,15 @@ This framework is built on principles of LLM-assisted development:
 
 ### 🎯 Planning Commands
 
-#### `/project:init <idea>`
+#### `/project:spec <idea>`
 
 Interactive questioning to develop detailed specifications. Asks one question at a time.
 
 ```bash
-/project:init mobile app that tracks personal reading habits
+/project:spec mobile app that tracks personal reading habits
 ```
 
-#### `/project:compile`
+#### `/project:spec-create`
 
 Compiles brainstorming findings into a developer-ready specification.
 
@@ -73,13 +73,13 @@ Generates implementation prompts for code generation LLMs.
 
 Creates a thorough `todo.md` checklist file.
 
-#### `/project:run <plan-file>`
+#### `/project:execute <plan-file>`
 
 Executes prompts from a generated plan file in sequence.
 
 ```bash
-/project:run plan.md
-/project:run ttd-plan.md
+/project:execute plan.md
+/project:execute ttd-plan.md
 ```
 
 ### ✅ Validation & Setup Commands
@@ -114,7 +114,7 @@ Configures language-specific standards and tooling.
 
 ### 🔍 Code Review Commands
 
-#### `/review:careful`
+#### `/review:code`
 
 Reviews new code with fresh eyes to find bugs and issues.
 
@@ -171,10 +171,10 @@ Creates an optional `harper.config.toml` file to customize behavior.
 
 ```bash
 # Interactive refinement
-/project:init [your idea]
+/project:spec [your idea]
 
 # Compile into spec
-/project:compile
+/project:spec-create
 
 # Validate everything
 /project:validate
@@ -194,14 +194,14 @@ Creates an optional `harper.config.toml` file to customize behavior.
 
 ```bash
 # Execute prompts sequentially
-/project:run ttd-plan.md
+/project:execute ttd-plan.md
 ```
 
 ### 5. Quality Assurance
 
 ```bash
 # Review code
-/review:careful
+/review:code
 
 # Check security
 /review:security
@@ -264,7 +264,7 @@ Harper Prompts creates these files in your project:
 
 ### 1. Start Small
 
-Begin with `/project:init` to thoroughly understand requirements.
+Begin with `/project:spec` to thoroughly understand requirements.
 
 ### 2. Validate Early
 
@@ -272,7 +272,7 @@ Use `/project:validate` before running plans.
 
 ### 3. Review Often
 
-Run `/review:careful` after each major step.
+Run `/review:code` after each major step.
 
 ### 4. Security First
 
@@ -312,34 +312,34 @@ Follow the incremental approach - don't skip steps.
 ### Building a REST API (Python)
 
 ```bash
-/project:init REST API for a bookstore with inventory management
-/project:compile
+/project:spec REST API for a bookstore with inventory management
+/project:spec-create
 /project:setup-lang python
 /project:plan --ttd
-/project:run ttd-plan.md
+/project:execute ttd-plan.md
 /review:security
 ```
 
 ### Building a CLI Tool (Go)
 
 ```bash
-/project:init CLI tool for managing Docker containers
-/project:compile
+/project:spec CLI tool for managing Docker containers
+/project:spec-create
 /project:setup-lang go
 /project:plan
-/project:run plan.md
-/review:careful
+/project:execute plan.md
+/review:code
 ```
 
 ### Building a Web App (TypeScript)
 
 ```bash
-/project:init React dashboard for analytics
-/project:compile
+/project:spec React dashboard for analytics
+/project:spec-create
 /project:setup-lang typescript
 /project:config-create typescript
 /project:plan --ttd
-/project:run ttd-plan.md
+/project:execute ttd-plan.md
 ```
 
 ## Troubleshooting

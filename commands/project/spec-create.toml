@@ -1,15 +1,15 @@
 # ---------------------------------------------------------------------------
-# Command: /project:compile
+# Command: /project:spec-create
 #
 # Description:
 #   Compiles the findings from a brainstorming session into a comprehensive,
 #   developer-ready specification.
 #
 # Usage Example:
-#   /project:compile mobile app that tracks personal reading habits
+#   /project:spec-create
 # ---------------------------------------------------------------------------
 
-name = "project:compile"
+name = "project:spec-create"
 description = "Compiles brainstorming findings into a developer-ready specification"
 
 prompt = """

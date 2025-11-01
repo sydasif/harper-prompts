@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# Command: /project:run
+# Command: /project:execute
 #
 # Description:
 #   Executes prompts from a generated prompt file (plan.md or ttd-plan.md)
@@ -7,10 +7,10 @@
 #   blog post. This simulates the execution phase mentioned in the workflow.
 #
 # Usage Example:
-#   /project:run ttd-plan.md
+#   /project:execute ttd-plan.md
 # ---------------------------------------------------------------------------
 
-name = "project:run"
+name = "project:execute"
 description = "Executes prompts from a generated prompt file in an automated sequence with optional automated testing"
 
 prompt = """

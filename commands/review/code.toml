@@ -1,15 +1,15 @@
 # ---------------------------------------------------------------------------
-# Command: /review:careful
+# Command: /review:code
 #
 # Description:
-#   Performs a careful review of new code with fresh eyes to find bugs and issues.
+#   Performs a general code review of new code with fresh eyes to find bugs and issues.
 #
 # Usage Example:
-#   /review:careful
+#   /review:code
 # ---------------------------------------------------------------------------
 
-name = "review:careful"
-description = "Performs careful code review of new/modified code"
+name = "review:code"
+description = "Performs general code review of new/modified code"
 
 prompt = """
 Great, now I want you to carefully read over all of the new code you just wrote and other existing code you just modified with "fresh eyes," looking super carefully for any obvious bugs, errors, problems, issues, confusion, etc.

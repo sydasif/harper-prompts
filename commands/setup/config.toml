@@ -3,7 +3,6 @@
 #
 # Description:
 #   Provides setup configuration information and workflow details.
-#   Based on setup.md functionality.
 #
 # Usage Example:
 #   /setup:config
@@ -13,7 +12,7 @@ name = "setup:config"
 description = "Provides setup configuration and workflow information"
 
 prompt = """
-Make sure there is a claude.md. If there isn't, exit this prompt, and instruct the user to run /init
+Make sure there is a QWEN.md. If there isn't, exit this prompt, and instruct the user to run /init
 
 If there is, add the following info:
 

@@ -15,10 +15,10 @@ This is a CLI agent extension. Install it in your Qwen/AI CLI agent:
 
 ```bash
 # 1. Start with your idea
-/project:spec mobile app that tracks personal reading habits
+/project:initiate mobile app that tracks personal reading habits
 
 # 2. Compile the specification
-/project:spec-create
+/project:create
 
 # 3. Generate implementation plan (with TDD)
 /project:plan --ttd
@@ -48,15 +48,15 @@ This framework is built on principles of LLM-assisted development:
 
 ### 🎯 Planning Commands
 
-#### `/project:spec <idea>`
+#### `/project:initiate <idea>`
 
 Interactive questioning to develop detailed specifications. Asks one question at a time.
 
 ```bash
-/project:spec mobile app that tracks personal reading habits
+/project:initiate mobile app that tracks personal reading habits
 ```
 
-#### `/project:spec-create`
+#### `/project:create`
 
 Compiles brainstorming findings into a developer-ready specification.
 
@@ -171,10 +171,10 @@ Creates an optional `harper.config.toml` file to customize behavior.
 
 ```bash
 # Interactive refinement
-/project:spec [your idea]
+/project:initiate [your idea]
 
 # Compile into spec
-/project:spec-create
+/project:create
 
 # Validate everything
 /project:validate
@@ -264,7 +264,7 @@ Harper Prompts creates these files in your project:
 
 ### 1. Start Small
 
-Begin with `/project:spec` to thoroughly understand requirements.
+Begin with `/project:initiate` to thoroughly understand requirements.
 
 ### 2. Validate Early
 
@@ -312,8 +312,8 @@ Follow the incremental approach - don't skip steps.
 ### Building a REST API (Python)
 
 ```bash
-/project:spec REST API for a bookstore with inventory management
-/project:spec-create
+/project:initiate REST API for a bookstore with inventory management
+/project:create
 /project:setup-lang python
 /project:plan --ttd
 /project:execute ttd-plan.md
@@ -323,8 +323,8 @@ Follow the incremental approach - don't skip steps.
 ### Building a CLI Tool (Go)
 
 ```bash
-/project:spec CLI tool for managing Docker containers
-/project:spec-create
+/project:initiate CLI tool for managing Docker containers
+/project:create
 /project:setup-lang go
 /project:plan
 /project:execute plan.md
@@ -334,8 +334,8 @@ Follow the incremental approach - don't skip steps.
 ### Building a Web App (TypeScript)
 
 ```bash
-/project:spec React dashboard for analytics
-/project:spec-create
+/project:initiate React dashboard for analytics
+/project:create
 /project:setup-lang typescript
 /project:config-create typescript
 /project:plan --ttd

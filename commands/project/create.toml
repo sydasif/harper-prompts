@@ -9,7 +9,7 @@
 #   /project:spec-create
 # ---------------------------------------------------------------------------
 
-name = "project:spec-create"
+name = "project:create"
 description = "Compiles brainstorming findings into a developer-ready specification"
 
 prompt = """

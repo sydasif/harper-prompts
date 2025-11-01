@@ -48,7 +48,7 @@ The goal is to output prompts, but context, etc is important as well.
 {{args}}
 ```
 
-Save the output as: ttd-planing.md
+Save the output as: ttd-planning.md
 
 {{else}}
 

@@ -16,7 +16,7 @@ description = "Executes prompts from a generated prompt file in an automated seq
 prompt = """
 I'll help you run through the prompts in the generated prompt file to implement your project step by step, following the execution approach described in the blog post.
 
-For TDD workflow (`ttd-planing.md`), I will:
+For TDD workflow (`ttd-planning.md`), I will:
 
 1. Execute each prompt (e.g., create test files)
 2. Automatically run tests to see the expected failures
@@ -24,7 +24,7 @@ For TDD workflow (`ttd-planing.md`), I will:
 4. Run tests again to verify they pass
 5. Continue to the next test/implementation pair
 
-For regular workflow (`planing.md`), I will:
+For regular workflow (`planning.md`), I will:
 
 1. Execute each prompt in sequence
 2. Verify implementation steps are completed before moving forward

@@ -1,0 +1,153 @@
+# ---------------------------------------------------------------------------
+# Command: /project:error-handling
+#
+# Description:
+#   Reviews and improves error handling throughout the codebase.
+#   Identifies missing error cases and suggests comprehensive error handling strategies.
+#
+# Usage Example:
+#   /project:error-handling
+#   /project:error-handling --audit-only
+# ---------------------------------------------------------------------------
+
+name = "project:error-handling"
+description = "Reviews and improves error handling in the codebase"
+
+prompt = """
+{{#if args.includes('--audit-only')}}
+# Error Handling Audit
+
+Perform a comprehensive audit of error handling in the codebase:
+
+## 1. Identify Missing Error Handling
+Review all code for operations that could fail but lack error handling:
+- File I/O operations
+- Network requests/API calls
+- Database operations
+- User input processing
+- External command executions
+- Type conversions and parsing
+- Resource allocation (memory, file handles, connections)
+
+## 2. Evaluate Existing Error Handling
+For existing error handling, check:
+- Are errors caught at the appropriate level?
+- Are error messages informative and actionable?
+- Are errors logged with sufficient context?
+- Are resources properly cleaned up in error cases?
+- Are errors re-thrown or wrapped appropriately?
+- Is there a consistent error handling pattern?
+
+## 3. Security Considerations
+- Are error messages exposing sensitive information?
+- Are stack traces exposed to end users?
+- Are errors being swallowed silently?
+
+## 4. Generate Report
+Create a report listing:
+- **Critical**: Operations that must have error handling
+- **Important**: Operations that should have better error handling
+- **Enhancement**: Areas where error handling could be improved
+- Specific file paths and line numbers for each issue
+
+{{else}}
+# Error Handling Review & Implementation
+
+I'll review the codebase and implement comprehensive error handling following these principles:
+
+## Error Handling Strategy
+
+### 1. Identify Error-Prone Operations
+Review all code for operations that can fail:
+- File operations (read/write/delete)
+- Network/API calls
+- Database queries
+- User input validation
+- External process execution
+- Resource allocation
+- Type conversions
+
+### 2. Implement Proper Error Handling
+
+**For each language, use appropriate patterns:**
+
+**Python:**
+```python
+try:
+    # Operation that might fail
+    result = risky_operation()
+except SpecificException as e:
+    # Handle specific error
+    logger.error(f"Operation failed: {e}", exc_info=True)
+    raise CustomException("User-friendly message") from e
+except Exception as e:
+    # Handle unexpected errors
+    logger.critical(f"Unexpected error: {e}", exc_info=True)
+    raise
+finally:
+    # Cleanup resources
+    cleanup_resources()
+```
+
+**JavaScript/TypeScript:**
+```javascript
+try {
+    const result = await riskyOperation();
+} catch (error) {
+    if (error instanceof SpecificError) {
+        // Handle specific error
+        logger.error('Operation failed:', error);
+        throw new CustomError('User-friendly message', { cause: error });
+    }
+    // Re-throw unexpected errors
+    throw error;
+} finally {
+    // Cleanup resources
+    cleanup();
+}
+```
+
+### 3. Error Handling Best Practices
+
+Apply these patterns throughout:
+
+1. **Catch Specific Exceptions**: Never use bare `except:` or `catch`
+2. **Provide Context**: Include relevant information in error messages
+3. **Log Appropriately**: Use proper log levels (debug/info/warning/error/critical)
+4. **Clean Up Resources**: Always use try-finally or context managers
+5. **Don't Swallow Errors**: Re-raise or handle appropriately
+6. **User-Friendly Messages**: Hide implementation details from users
+7. **Fail Fast**: Validate inputs early
+8. **Graceful Degradation**: Provide fallbacks where appropriate
+
+### 4. Implementation Steps
+
+I will:
+1. Scan the codebase for missing error handling
+2. Add try-catch/except blocks where needed
+3. Ensure all resources are properly cleaned up
+4. Add informative error messages
+5. Implement logging for all errors
+6. Add input validation at boundaries
+7. Test error paths to ensure they work correctly
+
+### 5. Testing Error Handling
+
+After implementation, I'll:
+- Create test cases for error scenarios
+- Verify error messages are helpful
+- Check that resources are cleaned up
+- Ensure no sensitive data is leaked in errors
+- Confirm logging captures necessary context
+
+## Next Steps
+
+I'll now review the code and implement comprehensive error handling.
+If you want just an audit first, use `/project:error-handling --audit-only`
+
+{{/if}}
+
+```
+{{args}}
+```
+"""

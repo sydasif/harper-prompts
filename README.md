@@ -2,127 +2,395 @@
 
 Harper Prompts is an AI-assisted development framework inspired by the LLM codegen workflow described in [this blog post](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/). It provides a structured approach to software project planning, specification development, and implementation through a series of interactive commands.
 
-## Overview
+## Installation
 
-The Harper Prompts framework follows a systematic approach to software development using AI assistance:
+This is a CLI agent extension. Install it in your Qwen/AI CLI agent:
 
-1. **Idea Refinement** - Iterative questioning to develop thorough specifications
-2. **Planning** - Detailed, step-by-step blueprint generation
-3. **Code Review** - Quality and security review processes
-4. **Implementation** - Test-driven or regular development prompts
-5. **Tracking** - Comprehensive to-do lists for project management
+```bash
+# Installation location
+~/.qwen/extensions/harper-commands/
+```
+
+## Quick Start
+
+```bash
+# 1. Start with your idea
+/project:init mobile app that tracks personal reading habits
+
+# 2. Compile the specification
+/project:compile
+
+# 3. Generate implementation plan (with TDD)
+/project:plan --ttd
+
+# 4. Create tracking checklist
+/project:todo
+
+# 5. Execute the plan
+/project:run ttd-plan.md
+
+# 6. Review your code
+/review:careful
+/review:security
+```
 
 ## Core Philosophy
 
-This framework is built on the principles outlined in the blog post about LLM-assisted development:
+This framework is built on principles of LLM-assisted development:
 
-- **Iterative Specification Development**: Through conversational refinement of ideas
-- **Small, Incremental Steps**: Breaking projects into manageable, testable chunks
-- **Comprehensive Documentation**: Maintaining clear specs, prompts, and tracking
-- **AI-Assisted Implementation**: Using code generation tools effectively
+- **Iterative Specification Development** through conversational refinement
+- **Small, Incremental Steps** breaking projects into testable chunks
+- **Comprehensive Documentation** maintaining clear specs and tracking
+- **AI-Assisted Implementation** using code generation tools effectively
+- **Quality Assurance** built-in validation and security reviews
 
-## Command Categories
+## Command Reference
 
-### Planning Commands
+### 🎯 Planning Commands
 
-#### `/project:compile`
+#### `/project:init <idea>`
 
-Compiles brainstorming findings into a comprehensive, developer-ready specification including requirements, architecture, data handling, error handling, and testing plans.
-
-#### `/project:init`
-
-Interactive iterative questioning to develop detailed specifications. Asks one question at a time to build a comprehensive spec for your idea.
+Interactive questioning to develop detailed specifications. Asks one question at a time.
 
 ```bash
 /project:init mobile app that tracks personal reading habits
 ```
 
-#### `/project:plan`
+#### `/project:compile`
 
-Generates step-by-step implementation prompts for code generation LLMs. Can be used with `--ttd` for Test-Driven Development or `--gh` for GitHub Issues approach.
+Compiles brainstorming findings into a developer-ready specification.
+
+#### `/project:plan [--ttd]`
+
+Generates implementation prompts for code generation LLMs.
 
 ```bash
-/project:plan
-/project:plan --ttd
-/project:plan --gh
+/project:plan        # Regular development
+/project:plan --ttd  # Test-driven development
 ```
 
 #### `/project:todo`
 
-Creates thorough `todo.md` checklist files for project tracking.
+Creates a thorough `todo.md` checklist file.
 
-#### `/project:run`
+#### `/project:run <plan-file>`
 
-Executes prompts from a generated prompt file in an automated sequence with optional automated testing.
+Executes prompts from a generated plan file in sequence.
 
-### Code Review Commands
+```bash
+/project:run plan.md
+/project:run ttd-plan.md
+```
+
+### ✅ Validation & Setup Commands
+
+#### `/project:validate`
+
+Validates that required files exist before proceeding.
+
+```bash
+/project:validate                # Full validation
+/project:validate --check-spec   # Check spec only
+/project:validate --check-plan   # Check plan only
+```
+
+#### `/project:setup-lang <language>`
+
+Configures language-specific standards and tooling.
+
+```bash
+/project:setup-lang python
+/project:setup-lang typescript
+/project:setup-lang go
+```
+
+**Supported Languages:**
+
+- Python (uv, pytest, ruff, mypy, black)
+- JavaScript/TypeScript (npm/yarn/pnpm, jest/vitest, eslint, prettier)
+- Go (modules, testing, golangci-lint, gofmt)
+- Rust (cargo, clippy, rustfmt)
+- Java (Maven/Gradle, JUnit)
+
+### 🔍 Code Review Commands
 
 #### `/review:careful`
 
-Performs a careful review of new code with fresh eyes to find bugs and issues.
-
-```bash
-/review:careful
-```
+Reviews new code with fresh eyes to find bugs and issues.
 
 #### `/review:missing-tests`
 
-Reviews code to identify missing test cases and creates GitHub issues for them.
-
-```bash
-/review:missing-tests
-```
+Identifies missing test cases and creates GitHub issues.
 
 #### `/review:security`
 
-Performs a security review of code to identify vulnerabilities.
+Performs comprehensive security review:
+
+- Authentication & Authorization
+- Input Validation & Injection vulnerabilities
+- Data Protection
+- API Security
+- Dependency vulnerabilities
+
+### 🛡️ Quality Assurance Commands
+
+#### `/project:error-handling [--audit-only]`
+
+Reviews and improves error handling throughout the codebase.
 
 ```bash
+/project:error-handling              # Review and implement
+/project:error-handling --audit-only # Report only
+```
+
+### ⚙️ Configuration (Optional)
+
+#### `/project:config-create [language]`
+
+Creates an optional `harper.config.toml` file to customize behavior.
+
+```bash
+/project:config-create              # Full config
+/project:config-create --minimal    # Minimal config
+/project:config-create python       # Python preset
+/project:config-create typescript   # TypeScript preset
+```
+
+**Note:** Configuration is completely optional! All commands work with sensible defaults.
+
+## Typical Workflow
+
+### 1. Project Setup
+
+```bash
+# Optional: Configure language-specific settings
+/project:setup-lang python
+```
+
+### 2. Idea to Specification
+
+```bash
+# Interactive refinement
+/project:init [your idea]
+
+# Compile into spec
+/project:compile
+
+# Validate everything
+/project:validate
+```
+
+### 3. Planning
+
+```bash
+# Generate implementation plan
+/project:plan --ttd
+
+# Create tracking checklist
+/project:todo
+```
+
+### 4. Implementation
+
+```bash
+# Execute prompts sequentially
+/project:run ttd-plan.md
+```
+
+### 5. Quality Assurance
+
+```bash
+# Review code
+/review:careful
+
+# Check security
 /review:security
+
+# Audit error handling
+/project:error-handling --audit-only
+
+# Find missing tests
+/review:missing-tests
 ```
 
-### Setup Commands
+## Optional Configuration
 
-#### `/project:setup`
-
-Provides setup configuration information and workflow details.
+Create a `harper.config.toml` file to customize behavior:
 
 ```bash
-/project:setup
+/project:config-create python
 ```
 
-## Usage Workflow
+Example config:
 
-The recommended workflow mirrors the approach described in the blog post:
+```toml
+[standards.python]
+enabled = true
+package_manager = "uv"
+test_framework = "pytest"
 
-### 1. Idea Honing
+[workflow]
+approach = "tdd"
+auto_test = true
 
-Use `/project:init` to iteratively refine your idea into a detailed specification.
+[quality]
+min_test_coverage = 80
+```
 
-### 2. Planning
+**When to use config:**
 
-Take the specification and use `/project:plan` to generate implementation prompts, then `/project:todo` to create a tracking checklist.
+- Setting team-wide standards
+- Customizing test coverage requirements
+- Specifying language-specific tools
+- Defining quality thresholds
 
-### 3. Execution
+**When NOT needed:**
 
-Use the generated prompts with your preferred code generation tool (Aider, Cursor, Claude, etc.) to implement the project incrementally.
+- Quick projects or experiments
+- Default settings work fine
+- Just trying out the framework
 
-### 4. Quality Assurance
+## Generated Files
 
-Use the review commands to ensure code quality and security.
+Harper Prompts creates these files in your project:
+
+- `spec.md` - Comprehensive specification document
+- `plan.md` - Implementation prompts (regular approach)
+- `ttd-plan.md` - TDD implementation prompts
+- `todo.md` - Progress tracking checklist
+- `harper.config.toml` - Optional configuration
+
+## Best Practices
+
+### 1. Start Small
+
+Begin with `/project:init` to thoroughly understand requirements.
+
+### 2. Validate Early
+
+Use `/project:validate` before running plans.
+
+### 3. Review Often
+
+Run `/review:careful` after each major step.
+
+### 4. Security First
+
+Include `/review:security` before deployment.
+
+### 5. Track Progress
+
+Update `todo.md` as you complete tasks.
+
+### 6. Small Steps
+
+Follow the incremental approach - don't skip steps.
+
+## Language Support Matrix
+
+| Language | Package Manager | Test Framework | Linter | Formatter |
+|----------|----------------|----------------|---------|-----------|
+| Python | uv | pytest | ruff, mypy | black |
+| JavaScript | npm/yarn/pnpm | jest/vitest | eslint | prettier |
+| TypeScript | npm/yarn/pnpm | jest/vitest | eslint | prettier |
+| Go | go modules | testing | golangci-lint | gofmt |
+| Rust | cargo | built-in | clippy | rustfmt |
+| Java | maven/gradle | JUnit | checkstyle | google-java-format |
 
 ## Benefits
 
-- **Structured Approach**: Provides clear guidance for planning and implementing projects
-- **Small Steps**: Breaks complex projects into manageable chunks
-- **Documentation**: Maintains comprehensive specifications and tracking
-- **AI Integration**: Designed to work effectively with modern code generation tools
-- **Flexible**: Supports both TDD and regular development approaches
+✅ **Structured Approach** - Clear guidance from idea to implementation
+✅ **Multi-Language** - Support for major programming languages
+✅ **Quality Assurance** - Built-in validation and security scanning
+✅ **Small Steps** - Manageable, testable incremental progress
+✅ **AI-Optimized** - Works effectively with code generation tools
+✅ **Flexible** - TDD or regular development approaches
+✅ **Optional Config** - Works great out of the box, customize when needed
+
+## Examples
+
+### Building a REST API (Python)
+
+```bash
+/project:init REST API for a bookstore with inventory management
+/project:compile
+/project:setup-lang python
+/project:plan --ttd
+/project:run ttd-plan.md
+/review:security
+```
+
+### Building a CLI Tool (Go)
+
+```bash
+/project:init CLI tool for managing Docker containers
+/project:compile
+/project:setup-lang go
+/project:plan
+/project:run plan.md
+/review:careful
+```
+
+### Building a Web App (TypeScript)
+
+```bash
+/project:init React dashboard for analytics
+/project:compile
+/project:setup-lang typescript
+/project:config-create typescript
+/project:plan --ttd
+/project:run ttd-plan.md
+```
+
+## Troubleshooting
+
+### Commands not working?
+
+```bash
+# Check extension is installed
+ls ~/.qwen/extensions/harper-commands/
+
+# Validate your project setup
+/project:validate
+```
+
+### Missing files?
+
+```bash
+# See what files are expected
+/project:validate
+```
+
+### Want to customize behavior?
+
+```bash
+# Create config file
+/project:config-create --minimal
+```
 
 ## Inspiration
 
-This project is directly inspired by the blog post ["My LLM codegen workflow atm"](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) which outlines an effective approach to using AI for software development. The framework translates these concepts into actionable commands and tools.
+This project is directly inspired by ["My LLM codegen workflow atm"](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) which outlines an effective approach to using AI for software development.
 
 ## License
 
-This project is open source and available under the MIT License.
+MIT License - Open source and free to use.
+
+## Changelog
+
+### v1.1.0 (2025-11-01)
+
+- ✨ Added complete security review command
+- ✨ Added project validation command
+- ✨ Added error handling audit and implementation
+- ✨ Added optional configuration system
+- ✨ Added multi-language support (Python, JS/TS, Go, Rust, Java)
+- 📝 Simplified setup - config is now optional
+- 🔧 Improved documentation
+
+### v1.0.0
+
+- 🎉 Initial release with core commands
+- 📋 Project planning workflow
+- 🔍 Basic review commands
+- ✅ TDD support

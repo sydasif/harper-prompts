@@ -13,4 +13,55 @@ description = "Reviews code for security vulnerabilities"
 
 prompt = """
 Review this code for security vulnerabilities, focusing on:
+
+## Authentication & Authorization
+- Weak or missing authentication mechanisms
+- Improper session management
+- Insufficient access controls
+- Missing authorization checks
+- Insecure password storage (unhashed, weak hashing)
+
+## Input Validation & Injection
+- SQL injection vulnerabilities
+- Command injection risks
+- Cross-site scripting (XSS) vulnerabilities
+- Path traversal issues
+- XML/JSON injection
+- Insufficient input sanitization
+
+## Data Protection
+- Sensitive data exposure in logs or error messages
+- Unencrypted sensitive data storage
+- Missing encryption for data in transit
+- Hardcoded secrets, API keys, or credentials
+- Insecure cryptographic implementations
+
+## API Security
+- Missing rate limiting
+- Insufficient API authentication
+- Exposure of internal implementation details
+- CORS misconfigurations
+- Missing request validation
+
+## Dependency & Configuration
+- Known vulnerabilities in dependencies
+- Insecure default configurations
+- Exposed debug endpoints in production
+- Insufficient error handling that leaks information
+- Missing security headers
+
+## Code Quality Issues
+- Race conditions
+- Buffer overflows (in languages like C/C++)
+- Use of dangerous functions
+- Insufficient logging for security events
+- Missing input length restrictions
+
+Please provide:
+1. A list of identified vulnerabilities with severity ratings (Critical/High/Medium/Low)
+2. Specific line numbers or code sections affected
+3. Recommended fixes for each issue
+4. General security best practices applicable to this codebase
+
+Format the output as a security report with actionable recommendations.
 """

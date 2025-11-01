@@ -11,7 +11,7 @@
 #   /project:setup-lang go
 # ---------------------------------------------------------------------------
 
-name = "project:setup-lang"
+name = "project:setup"
 description = "Configures language-specific standards and tooling"
 
 prompt = """

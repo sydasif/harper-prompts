@@ -17,27 +17,6 @@ name = "project:plan"
 description = "Generates a series of prompts for a code-generation LLM to implement a project with an optional TDD approach"
 
 prompt = """
-# Project Standards
-Before generating the plan, please adhere to the following project standards:
-
-**Python Package Management:**
-- We use `uv` for Python package management.
-- You do not need a `requirements.txt` file.
-- To run a Python script, use: `uv run <script.py>`
-- To add new packages, use: `uv add <package>`
-- All project packages are managed and stored in `pyproject.toml`.
-
-**Workflow Guidelines:**
-- If a `todo.md` file exists, ensure you check off completed tasks to track progress.
-
-**Testing:**
-- All tests must pass before a task is considered complete.
-
-**Linting:**
-- Ensure all linting checks pass before completing any task to maintain code quality.
-
----
-
 Project file: spec.md
 
 Draft a detailed, step-by-step blueprint for building this project.

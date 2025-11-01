@@ -3,7 +3,6 @@
 #
 # Description:
 #   Performs a security review of code to identify vulnerabilities.
-#   Based on security-review.md functionality.
 #
 # Usage Example:
 #   /review:security

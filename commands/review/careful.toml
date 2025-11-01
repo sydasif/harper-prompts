@@ -3,7 +3,6 @@
 #
 # Description:
 #   Performs a careful review of new code with fresh eyes to find bugs and issues.
-#   Based on careful-review.md functionality.
 #
 # Usage Example:
 #   /review:careful

@@ -3,7 +3,6 @@
 #
 # Description:
 #   Reviews code to identify missing test cases and creates GitHub issues for them.
-#   Based on find-missing-tests.md functionality.
 #
 # Usage Example:
 #   /review:missing-tests

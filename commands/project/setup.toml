@@ -17,17 +17,22 @@ description = "Configures language-specific standards and tooling"
 prompt = """
 I'll help you set up language-specific standards and tooling for your project.
 
+Project files: `specification.md` and `planing.md`
+
 # Language-Specific Configuration
 
 {{#if args.includes('python')}}
+
 ## Python Project Setup
 
 ### Package Management
+
 - **Tool**: `uv` (modern, fast Python package manager)
 - **Alternative**: `pip` + `venv` for traditional setup
 - **Configuration**: `pyproject.toml`
 
 ### Commands:
+
 ```bash
 # Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -61,18 +66,21 @@ project/
 ```
 
 ### Testing
+
 - **Framework**: `pytest`
 - **Installation**: `uv add --dev pytest pytest-cov`
 - **Run tests**: `uv run pytest`
 - **With coverage**: `uv run pytest --cov=src tests/`
 
 ### Linting & Formatting
+
 - **Linter**: `ruff` (fast, modern linter)
 - **Formatter**: `black` or `ruff format`
 - **Type Checker**: `mypy`
 - **Installation**: `uv add --dev ruff mypy black`
 
 ### Commands:
+
 ```bash
 # Lint code
 uv run ruff check .
@@ -87,6 +95,7 @@ uv run mypy src/
 ```
 
 ### Standards Applied:
+
 - Use type hints for all functions
 - Follow PEP 8 style guide
 - Minimum test coverage: 80%
@@ -94,14 +103,18 @@ uv run mypy src/
 - Error handling with specific exceptions
 
 {{else if args.includes('javascript') or args.includes('typescript') or args.includes('node')}}
+
 ## JavaScript/TypeScript Project Setup
 
 ### Package Management
+
 - **Tool**: `npm`, `yarn`, `pnpm`, or `bun`
 - **Configuration**: `package.json`
 
 {{#if args.includes('typescript')}}
+
 ### TypeScript Setup
+
 ```bash
 # Initialize project
 npm init -y
@@ -131,6 +144,7 @@ npx tsc --init
 {{/if}}
 
 ### Project Structure:
+
 ```
 project/
 ├── package.json
@@ -145,11 +159,13 @@ project/
 ```
 
 ### Testing
+
 - **Framework**: `jest` or `vitest`
 - **Installation**: `npm install --save-dev jest @types/jest`
 - **Run tests**: `npm test`
 
 ### Linting & Formatting
+
 - **Linter**: `eslint`
 - **Formatter**: `prettier`
 - **Installation**:
@@ -159,6 +175,7 @@ npx eslint --init
 ```
 
 ### Standards Applied:
+
 - Use TypeScript for type safety (if applicable)
 - Follow Airbnb or Standard style guide
 - Minimum test coverage: 80%
@@ -167,9 +184,11 @@ npx eslint --init
 - Proper error handling with custom error classes
 
 {{else if args.includes('go')}}
+
 ## Go Project Setup
 
 ### Module Initialization
+
 ```bash
 go mod init <module-name>
 ```
@@ -190,16 +209,19 @@ project/
 ```
 
 ### Testing
+
 - **Framework**: Built-in `testing` package
 - **Run tests**: `go test ./...`
 - **With coverage**: `go test -cover ./...`
 - **Benchmarks**: `go test -bench=. ./...`
 
 ### Linting & Formatting
+
 - **Formatter**: `gofmt` or `goimports`
 - **Linter**: `golangci-lint`
 
 ### Commands:
+
 ```bash
 # Format code
 go fmt ./...
@@ -216,6 +238,7 @@ go run cmd/myapp/main.go
 ```
 
 ### Standards Applied:
+
 - Follow Go idioms and conventions
 - Use interfaces for abstraction
 - Proper error handling (return errors, don't panic)
@@ -223,6 +246,7 @@ go run cmd/myapp/main.go
 - Document all exported functions
 
 {{else if args.includes('rust')}}
+
 ## Rust Project Setup
 
 ### Cargo Initialization
@@ -246,12 +270,14 @@ project/
 ```
 
 ### Testing
+
 - **Framework**: Built-in
 - **Run tests**: `cargo test`
 - **With output**: `cargo test -- --nocapture`
 - **Benchmarks**: `cargo bench`
 
 ### Linting & Formatting
+
 - **Formatter**: `rustfmt`
 - **Linter**: `clippy`
 
@@ -271,6 +297,7 @@ cargo run
 ```
 
 ### Standards Applied:
+
 - Use Rust idioms (ownership, borrowing)
 - Leverage type system for safety
 - Comprehensive error handling with `Result` and `Option`
@@ -278,6 +305,7 @@ cargo run
 - Document all public APIs
 
 {{else if args.includes('java')}}
+
 ## Java Project Setup
 
 ### Build Tool
@@ -306,10 +334,12 @@ project/
 ```
 
 ### Testing
+
 - **Framework**: JUnit 5
 - **Run tests**: `mvn test` or `gradle test`
 
 ### Standards Applied:
+
 - Follow Java naming conventions
 - Use dependency injection
 - Write unit tests with JUnit
@@ -317,9 +347,11 @@ project/
 - Proper exception handling
 
 {{else}}
+
 ## General Project Setup
 
 Please specify a language:
+
 - `/project:setup-lang python`
 - `/project:setup-lang typescript`
 - `/project:setup-lang javascript`
@@ -328,6 +360,7 @@ Please specify a language:
 - `/project:setup-lang java`
 
 I can help set up standards and tooling for:
+
 - Python
 - JavaScript/TypeScript
 - Go

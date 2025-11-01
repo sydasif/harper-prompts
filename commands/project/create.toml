@@ -15,7 +15,8 @@ description = "Compiles brainstorming findings into a developer-ready specificat
 prompt = """
 Now that we’ve wrapped up the brainstorming process, can you compile our findings into a comprehensive,
 developer-ready specification? Include all relevant requirements, architecture choices,
-data handling details, error handling strategies, and a testing plan so a developer can immediately begin implementation.
+data handling details, error handling strategies,
+and a testing plan so a developer can immediately begin implementation.
 
-Save the output as: spec.md
+Save the output as: specification.md
 """

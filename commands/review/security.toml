@@ -12,7 +12,7 @@ name = "review:security"
 description = "Reviews code for security vulnerabilities"
 
 prompt = """
-Review this code for security vulnerabilities, focusing on:
+Review this codebase for security vulnerabilities, focusing on:
 
 ## Authentication & Authorization
 - Weak or missing authentication mechanisms
